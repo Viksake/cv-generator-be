@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  cv-backend-node:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+    restart: always
+    volumes:
+      - ./:/app
+      - /app/node_modules
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: mydatabase
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

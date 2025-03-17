@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template1</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+      <div class="left-side">
+        <div class="profile-text">
+            <div class="img-box">
+                <!-- Dynamicky nahrazený obrázek -->
+                <img src="{{profilePictureUrl || 'images/blank-pfp.png'}}" alt="Profile Picture">
+            </div>
+            <h2>{{firstName}} {{lastName}}</h2>
+        </div>
+
+        <div class="contact-info">
+            <h3 class="title">Kontakt</h3>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span class="text">{{phoneNumber}}</span>
+                </li>
+                <li>
+                    <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <span class="text">{{email}}</span>
+                </li>
+                <li>
+                    <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span class="text">{{city}}, {{street}}, {{streetNumber}}, {{zipCode}}, {{country}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Dynamické zpracování vzdělání -->
+        <div class="contact-info education">
+            <h3 class="title">Vzdělání</h3>
+            <ul>
+                {{#each education}}
+                    <li>
+                        <h5>{{startMonth}} {{startYear}} - {{endMonth}} {{endYear}}</h5>
+                        <h4>{{degree}}</h4>
+                        <h4>{{school}} {{city}}</h4>
+                    </li>
+                {{/each}}
+            </ul>
+        </div> 
+
+        <!-- Dynamické zpracování zájmů -->
+        <div class="contact-info">
+            <h3 class="title">Zájmy</h3>
+            <ul>
+                {{#each hobbies}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="about">
+            <h2 class="title2">O sobě</h2>
+            <p>{{bio}}</p>
+        </div>
+        
+        <!-- Dynamické zpracování pracovních zkušeností -->
+        <div class="about">
+            <h2 class="title2">Pracovní zkušenosti</h2> 
+            <div class="box">
+                {{#each experiences}}
+                    <div class="year_company">
+                        <h5>{{startMonth}} {{startYear}} - {{endMonth}} {{endYear}}</h5>
+                        <h5>{{employer}}</h5>
+                    </div>
+                    <div class="text">
+                        <h4>{{jobTitle}}</h4>
+                        <p>{{jobDescription}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- Dynamické zpracování odborných dovedností -->
+        <div class="about skills">
+            <h2 class="title2">Odborné dovednosti</h2>
+            <div class="box">
+                {{#each skills}}
+                    <h4>{{name}}</h4>
+                    <div class="percent">
+                        <div style="width: {{level}}%;"></div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

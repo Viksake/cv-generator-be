@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+     <body>
+        <div class="container">
+            <div class="top">
+                <h2>{{firstName}} {{lastName}}</h2>
+                <div class="group">
+                    <div class="leftSide">
+                        <div class="image-box">
+                            <img src='images/blank-pfp.png'>
+                        </div>
+                    </div>
+                    <div class="right-Side">
+                        <p>{{bio}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left-side">
+                    <!-- Left side obsahuje pouze Contact a Skills -->
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <span class="text">{{phoneNumber}}</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <span class="text">{{email}}</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <span class="text">{{city}}, {{street}}, {{streetNumber}}, {{zipCode}}, {{country}}</span>
+                        </li>
+                    </ul>
+            
+                    <h4>Skills</h4>
+                    {{#each skills}}
+                    <div class="skills">
+                        <div class="skills-box" style="--i:50%;">
+                            <p>{{name}}</p>
+                            <div class="value"></div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Right side je nyní samostatný blok -->
+                <div class="right-side">
+                    <h4 class="adjust-margin">Education</h4>
+                    <div class="edu-group">
+                        {{#each education}}
+                        <div class="edu-groupbox">
+                            <p>{{startMonth}} {{startYear}} - {{endMonth}} {{endYear}}</p>
+                            <div class="value">
+                                <b>{{degree}}</b>
+                                <p>{{school}} {{city}}</p>
+                            </div>
+                        </div>
+                        {{/each}}
+  
+                        <h4>Work Experience</h4>
+                        <div class="edu-groupbox">
+                            {{#each education}}
+                            <p>{{startMonth}} {{startYear}} - {{endMonth}} {{endYear}}</p>
+                            <div class="value">
+                                <b>{{jobTitle}}<br><span>{{employer}}</span></b>
+                                <p>{{jobDescription}}</p>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="hobbies">
+                <h4 class="adjust-margin">Hobbies</h4>
+                <ul>
+                     {{#each hobbies}}
+                     <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            </div>
+        </div>
+</body>
+</html>
