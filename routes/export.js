@@ -2,7 +2,7 @@ const express = require("express");
 const puppeteer = require("puppeteer");
 const path = require("path");
 const fs = require("fs");
-const User = require("./models/User");
+const User = require("../models/User");
 const { fillTemplateWithUserData } = require("../services/exportService"); // Import the service
 const router = express.Router();
 
@@ -38,17 +38,16 @@ router.get("/download/:id", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-
     const html = await fillTemplateWithUserData(user);
     const browser = await puppeteer.launch({
-      executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      executablePath:
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
       args: ["--no-sandbox", "--disable-dev-shm-usage"],
     });
 
     const page = await browser.newPage();
     await page.setContent(html);
     await page.waitForSelector("body");
-
 
     // Generování PDF
     const pdfBuffer = await page.pdf({

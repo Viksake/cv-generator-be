@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   firstName: String,
@@ -12,31 +12,37 @@ const userSchema = new mongoose.Schema({
   zipCode: String,
   country: String,
   bio: String,
-  experiences: [{
-    jobTitle: String,
-    city: String,
-    employer: String,
-    startMonth: String,
-    startYear: String,
-    endMonth: String,
-    endYear: String,
-    jobDescription: String
-  }],
-  education: [{
-    degree: String,
-    city: String,
-    school: String,
-    startMonth: String,
-    startYear: String,
-    endMonth: String,
-    endYear: String,
-    schoolDescription: String
-  }],
+  experiences: [
+    {
+      jobTitle: String,
+      city: String,
+      employer: String,
+      startMonth: String,
+      startYear: String,
+      endMonth: String,
+      endYear: String,
+      jobDescription: String,
+    },
+  ],
+  education: [
+    {
+      degree: String,
+      city: String,
+      school: String,
+      startMonth: String,
+      startYear: String,
+      endMonth: String,
+      endYear: String,
+      schoolDescription: String,
+    },
+  ],
   hobbies: [String],
-  skills: [{
-    name: String,
-    level: String
-  }],
+  skills: [
+    {
+      name: String,
+      level: String,
+    },
+  ],
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

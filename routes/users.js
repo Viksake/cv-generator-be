@@ -5,11 +5,13 @@ const router = express.Router();
 // Create a new user
 router.post("/", async (req, res) => {
   try {
-      const newUser = new User(req.body);
-      await newUser.save();
-      res.status(201).json({ message: "Uživatel úspěšně uložen!", user: newUser });
+    const newUser = new User(req.body);
+    await newUser.save();
+    res
+      .status(201)
+      .json({ message: "Uživatel úspěšně uložen!", user: newUser });
   } catch (error) {
-      res.status(500).json({ message: "Chyba při ukládání", error });
+    res.status(500).json({ message: "Chyba při ukládání", error });
   }
 });
 
@@ -24,7 +26,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/hello-world", async (req, res) => {
-    res.status(200).json({ message: "User not found" });
+  res.status(200).json({ message: "User not found" });
 });
 
 // Get a user by ID
