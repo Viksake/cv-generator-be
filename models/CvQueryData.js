@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const cvQueryData = new mongoose.Schema({
+  templateId: Number,
+  requestedAt: Date,
+  userAgent: String,
+  // User supplied data
   firstName: String,
   lastName: String,
   email: String,
+  photo: String,
   phoneNumber: String,
-  dateOfBirth: String,
   street: String,
   streetNumber: String,
   city: String,
@@ -33,7 +37,6 @@ const userSchema = new mongoose.Schema({
       startYear: String,
       endMonth: String,
       endYear: String,
-      schoolDescription: String,
     },
   ],
   hobbies: [String],
@@ -45,4 +48,4 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("CvQueryData", cvQueryData);

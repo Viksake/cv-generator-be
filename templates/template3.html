@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="styles3.css" />
   </head>
   <body>
-
     <div class="main">
       <div class="top-section">
         <img class="profile" src="images/blank-pfp.png" />
@@ -29,76 +28,64 @@
       <div class="col-div-4">
         <div class="content-box" style="padding-left: 40px">
           <p class="head">Contact</p>
-          <p class="p3"><i
-              class="fa fa-phone"
-            ></i>&nbsp;&nbsp;{{phoneNumber}}</p>
+          <p class="p3">
+            <i class="fa fa-phone"></i>&nbsp;&nbsp;{{phoneNumber}}
+          </p>
           <p class="p3"><i class="fa fa-envelope"></i>&nbsp;&nbsp;{{email}}</p>
-          <p class="p3"><i class="fa fa-home"></i>&nbsp;&nbsp;{{city}},
-            {{street}},
-            {{streetNumber}},
-            {{zipCode}},
-            {{country}}</p>
+          <p class="p3">
+            <i class="fa fa-home"></i>&nbsp;&nbsp;{{city}}, {{street}},
+            {{streetNumber}}, {{zipCode}}, {{country}}
+          </p>
 
           <br />
 
           <p class="head">Skills</p>
           <ul class="skills">
             {{#each skills}}
-              <li><span>{{name}}</span></li>
+            <li><span>{{name}}</span></li>
             {{/each}}
           </ul>
 
           <br />
           {{#each hobbies}}
-            <p class="head">Hobbies</p>
-            <p class="p3">{{this}}</p>
-            <p class="p3">Music</p>
+          <p class="head">Hobbies</p>
+          <p class="p3">{{this}}</p>
+          <p class="p3">Music</p>
           {{/each}}
           <br />
-
         </div>
       </div>
       <div class="line"></div>
       <div class="col-div-8">
         <div class="content-box">
-
           <p class="head">Profile</p>
-          <p class="p3" style="font-size: 14px;">Vivamus semper scelerisque
-            magna, eget efficitur odio iaculis blandit. Integer a ex sed augue
-            posuere facilisis.
-            <br />Nullam sed mi sed orci pretium interdum vitae sed erat. Proin
-            ac tincidunt purus, tempus efficitur quam. Nulla non massa lorem.
-            Nunc ac diam viverra mi viverra scelerisque.</p>
+          <p class="p3" style="font-size: 14px">
+            Vivamus semper scelerisque magna, eget efficitur odio iaculis
+            blandit. Integer a ex sed augue posuere facilisis. <br />Nullam sed
+            mi sed orci pretium interdum vitae sed erat. Proin ac tincidunt
+            purus, tempus efficitur quam. Nulla non massa lorem. Nunc ac diam
+            viverra mi viverra scelerisque.
+          </p>
 
           <br />
           <p class="head">Experience</p>
           {{#each experiences}}
-            <p>{{jobTitle}}
-              {{employer}}
-              {{startMonth}}
-              {{startYear}}
-              -
-              {{endMonth}}
-              {{endYear}}</p>
-            <p class="p-4">{{jobDescription}}</p>
+          <p>
+            {{jobTitle}} {{employer}} {{startMonth}} {{startYear}} -
+            {{endMonth}} {{endYear}}
+          </p>
+          <p class="p-4">{{jobDescription}}</p>
           {{/each}}
           <br />
           <p class="head">education</p>
           {{#each education}}
-            <p class="p-4">{{degree}}
-              -
-              {{school}}
-              {{city}}
-              {{startMonth}}
-              {{startYear}}
-              -
-              {{endMonth}}
-              {{endYear}}</p>
+          <p class="p-4">
+            {{degree}} - {{school}} {{city}} {{startMonth}} {{startYear}} -
+            {{endMonth}} {{endYear}}
+          </p>
           {{/each}}
         </div>
       </div>
-
     </div>
-
   </body>
 </html>
