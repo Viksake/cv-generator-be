@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect("mongodb://root:example@mongodb", {
+  .connect("mongodb://localhost:27017/cv_builder", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

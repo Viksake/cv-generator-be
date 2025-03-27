@@ -29,7 +29,8 @@ router.post("/download/:id", async (req, res) => {
     );
 
     const browser = await puppeteer.launch({
-      executablePath: "/usr/bin/google-chrome",
+      executablePath:
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
       args: ["--no-sandbox", "--disable-dev-shm-usage"],
     });
 
