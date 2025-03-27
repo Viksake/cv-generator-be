@@ -24,7 +24,8 @@ router.post("/download/:id", async (req, res) => {
   try {
     const html = await exportService.fillTemplateWithUserData(
       userData,
-      templateHtml
+      templateHtml,
+      templateId
     );
 
     const browser = await puppeteer.launch({
